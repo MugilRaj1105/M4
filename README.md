@@ -47,9 +47,9 @@ Write a C Program to check whether the two numbers are equal or not using simple
 #include<stdio.h>
 int main()
 {
-    int a,b;
-    scanf("%d%d",&a,&b);
-    if(a==b)
+    int X,Y;
+    scanf("%d%d",&X,&Y);
+    if(X==Y)
     {
         printf("X is equal to Y");
     }
@@ -127,25 +127,36 @@ Write a C Program to count the total number of words in a given string using do 
 ```
 ## PROGRAM
 ```
-#include<stdio.h>
-int main()
-{
-    char a[100];
-    int l=0;
-    fgets(a,sizeof(a),stdin);
-    while(a[l]!='\0')
-    {
-        l++;
-    }
-    printf("%d",l-1);
+#include <stdio.h>
+
+int main() {
+    char str[1000];
+    int i = 0, wordCount = 0;
+
+    printf("Enter a string: ");
+    fgets(str, sizeof(str), stdin);
+
+    do {
+        if ((str[i] != ' ' && str[i] != '\n' && str[i] != '\t') &&
+            (str[i + 1] == ' ' || str[i + 1] == '\n' || str[i + 1] == '\t' || str[i + 1] == '\0')) {
+            wordCount++;
+        }
+        i++;
+    } while (str[i] != '\0');
+
+    printf("Total number of words: %d\n", wordCount);
     return 0;
 }
+
 ```
 
 
 ## OUTPUT
 
-![Screenshot 2025-04-27 151533](https://github.com/user-attachments/assets/9a3e9933-6eb7-493c-ad3f-22ca658d6ad0)
+
+![Screenshot 2025-06-02 130606](https://github.com/user-attachments/assets/1530dd29-372a-4732-9ec4-122521228291)
+
+
 
 ## RESULT
 Thus the program to count the total number of words in a given string using do While loop has been executed successfully
@@ -176,30 +187,38 @@ Step 8: End the program.
 ```
 ## PROGRAM
 ```
-#include<stdio.h>
-#include<string.h>
-int main()
-{
-    char str[10];
-    char srt[10];
-    scanf("%s",str);
-    scanf("%s",srt);
-    int s = strcmp(str,srt);
-    if(s==0)
-    {
-        printf("strings are same");
+#include <stdio.h>
+
+int main() {
+    char str1[1000], str2[1000];
+    int i = 0, flag = 0;
+
+    printf("Enter first string: ");
+    fgets(str1, sizeof(str1), stdin);
+    printf("Enter second string: ");
+    fgets(str2, sizeof(str2), stdin);
+
+    while (str1[i] != '\0' && str2[i] != '\0') {
+        if (str1[i] != str2[i]) {
+            flag = 1;
+            break;
+        }
+        i++;
     }
+
+    if (flag == 0 && str1[i] == str2[i])
+        printf("Strings are equal.\n");
     else
-    {
-        printf("strings are not same");
-    }
+        printf("Strings are not equal.\n");
+
     return 0;
 }
 
 ```
 ## OUTPUT
 
-![Screenshot 2025-04-27 151615](https://github.com/user-attachments/assets/2dd622da-c9e3-4943-8ab0-67e0b0fc4d86)
+![Screenshot 2025-06-02 130407](https://github.com/user-attachments/assets/b22ed48e-10f4-428a-baf7-ffcd0ecf2afa)
+
 
 
 ## RESULT
